@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Digital_Clock.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,11 +20,6 @@ namespace Digital_Clock
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -85,6 +81,37 @@ namespace Digital_Clock
             totalSeconds = seconds;
             lblCountDown.Text = startTime;
             tmrCountDown.Enabled = true;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.WindowState = Properties.Settings.Default.F1State;
+            this.Location = Properties.Settings.Default.F1Location;
+            this.Size = Properties.Settings.Default.F1Size;
+        }
+
+        private void Form1_Closing(object sender, FormClosingEventArgs e)
+        {
+            Settings.Default.F1State = this.WindowState;
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                Settings.Default.F1Location = this.Location;
+                Settings.Default.F1Size = this.Size;
+            }
+            else
+            {
+                // ISSUE: variable of a compiler-generated type
+                Settings settings1 = Settings.Default;
+                Rectangle restoreBounds = this.RestoreBounds;
+                Point location = restoreBounds.Location;
+                settings1.F1Location = location;
+                // ISSUE: variable of a compiler-generated type
+                Settings settings2 = Settings.Default;
+                restoreBounds = this.RestoreBounds;
+                Size size = restoreBounds.Size;
+                settings2.F1Size = size;
+            }
+            Settings.Default.Save();
         }
     }
 }

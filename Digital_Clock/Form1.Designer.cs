@@ -62,7 +62,7 @@
             // btnBreak
             // 
             this.btnBreak.Location = new System.Drawing.Point(7, 56);
-            this.btnBreak.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBreak.Margin = new System.Windows.Forms.Padding(2);
             this.btnBreak.Name = "btnBreak";
             this.btnBreak.Size = new System.Drawing.Size(56, 19);
             this.btnBreak.TabIndex = 1;
@@ -73,7 +73,7 @@
             // btnLunch
             // 
             this.btnLunch.Location = new System.Drawing.Point(7, 79);
-            this.btnLunch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLunch.Margin = new System.Windows.Forms.Padding(2);
             this.btnLunch.Name = "btnLunch";
             this.btnLunch.Size = new System.Drawing.Size(56, 19);
             this.btnLunch.TabIndex = 2;
@@ -123,7 +123,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(224, 114);
+            this.ClientSize = new System.Drawing.Size(266, 114);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.lblCountDown);
@@ -131,9 +131,11 @@
             this.Controls.Add(this.btnBreak);
             this.Controls.Add(this.lblTime);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "BreakMinder";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_Closing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
